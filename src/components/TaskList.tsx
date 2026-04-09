@@ -10,7 +10,7 @@ interface TaskItem {
 interface TaskListProps {
     tasks: TaskItem[];
     updateMode: (id: string, text: string) => void;
-    deleteToDo: (id: string) => void;
+    deleteToDo: (task: TaskItem) => void;
 }
 
 const TaskList: React.FC<TaskListProps> = ({
@@ -27,7 +27,7 @@ const TaskList: React.FC<TaskListProps> = ({
                 <TaskItem
                     text={item.text}
                     updateMode={() => updateMode(item._id, item.text)}
-                    deleteToDo={() => deleteToDo(item._id)}
+                    deleteToDo={() => deleteToDo(item)}
                 />
             )}
             contentContainerStyle={styles.listContent}
